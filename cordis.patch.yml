@@ -1,0 +1,5 @@
+# dsh-bird-robin —— 知更鸟人格与皮肤插件
+# 安装后本文件随 bundle 层叠进入 profile 的配置树（仅声明一条挂载项）。
+- insert:
+    - id: dsh-bird-robin
+      name: dsh-bird-robin

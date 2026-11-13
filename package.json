@@ -1,0 +1,67 @@
+{
+  "name": "dsh-bird-robin",
+  "version": "0.1.0",
+  "description": "把 DeepSeek Harness 的对话人格换成《崩坏：星穹铁道》的知更鸟：四档语气（含舞台级演出）、界面换肤、开场卡与状态台词。纯中文，无语音。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "persona",
+    "skin",
+    "theme",
+    "robin"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "icon": "./icon.png",
+  "files": [
+    "lib",
+    "assets",
+    "icon.png",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js && node --check lib/persona.js && node --check lib/config.js && node --check lib/assets.js",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "license": "MIT"
+}
